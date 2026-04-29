@@ -107,6 +107,8 @@
   .manga-thumb-img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;}
   .manga-inner{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px;gap:6px;}
   .manga-ep-badge{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:900;color:var(--pink);letter-spacing:0.1em;}
+  .manga-new-badge{position:absolute;top:7px;left:7px;background:#e040a0;color:white;font-family:'Montserrat',sans-serif;font-size:9px;font-weight:900;padding:2px 7px;border-radius:99px;letter-spacing:0.05em;z-index:2;}
+  .lb-new-badge{display:inline-block;background:var(--pink);color:white;font-family:'Montserrat',sans-serif;font-size:9px;font-weight:900;padding:2px 8px;border-radius:99px;letter-spacing:0.05em;vertical-align:middle;margin-left:6px;}
   .manga-placeholder{width:100%;flex:1;background:linear-gradient(135deg,#fce4f3 0%,#e8d5f5 50%,#d5e8ff 100%);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:28px;}
   .manga-thumb-title{font-size:11px;font-weight:700;text-align:center;line-height:1.5;}
   .manga-thumb-scene{font-size:9px;color:var(--muted);text-align:center;line-height:1.5;margin-top:2px;}
@@ -429,7 +431,7 @@
           <div style="flex-shrink:0;align-self:center;background:var(--pink);color:white;font-size:10px;font-weight:700;padding:4px 10px;border-radius:99px;font-family:'Montserrat',sans-serif;white-space:nowrap;">▶ PLAY</div>
         </div>
         <div class="ep-item" style="border-style:dashed;opacity:0.55">
-          <div class="ep-num">#03</div>
+          <div class="ep-num">#next</div>
           <div><div class="ep-title">Coming soon...</div><div class="ep-desc">次回エピソード準備中</div></div>
         </div>
       </div>
@@ -549,7 +551,7 @@ const episodes = [
   { ep:"#10", title:"会議中ドキドキ事件", 
          desc:"資料を見せながら上目遣いをしてくる佐藤。不意に見せる その可愛さに心が崩壊し、動揺が隠せない田中……‼‼",
          imgs:["comic/JCj_10.jpg"],
-         emoji:"🎬", scene:"「俺も全然慣れねえーッ!!!!」" },
+         emoji:"🎬", scene:"「俺も全然慣れねえーッ!!!!」", new:true },
   { ep:"#11", title:"Coming soon...", desc:"次回エピソード準備中", emoji:"✨", scene:"", coming:true },
 ];
 
@@ -583,6 +585,7 @@ episodes.forEach((ep,i)=>{
         <div class="manga-img-label-title">${ep.title}</div>
       </div>
       ${ep.imgs.length>1?`<div class="manga-multi-badge">${ep.imgs.length}P</div>`:''}
+      ${ep.new?`<div class="manga-new-badge">NEW</div>`:''}
       <div class="manga-thumb-close" title="閉じる">✕</div>
       <div class="manga-overlay"><div class="manga-overlay-icon">⛶</div></div>`;
   }else{
@@ -593,6 +596,7 @@ episodes.forEach((ep,i)=>{
         <div class="manga-thumb-title">${ep.title}</div>
         ${ep.scene?`<div class="manga-thumb-scene">${ep.scene}</div>`:''}
       </div>
+      ${ep.new?`<div class="manga-new-badge">NEW</div>`:''}
       ${!ep.coming?`<div class="manga-thumb-close" title="閉じる">✕</div><div class="manga-overlay"><div class="manga-overlay-icon">⛶</div></div>`:''}`;
   }
   if(!ep.coming)el.onclick=()=>openLightbox(i);
@@ -689,7 +693,7 @@ slidesEl.addEventListener('touchend',e=>{
 function renderMeta(){
   const ep=episodes[currentEp];
   document.getElementById('lbEp').textContent=ep.ep;
-  document.getElementById('lbTitle').textContent=ep.title;
+  document.getElementById('lbTitle').innerHTML=ep.title+(ep.new?` <span class="lb-new-badge">NEW</span>`:'');
   document.getElementById('lbDesc').textContent=ep.desc;
   document.getElementById('lbScene').textContent=ep.scene||'';
 }
