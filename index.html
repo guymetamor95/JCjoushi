@@ -244,6 +244,10 @@
   .ep-list{display:flex;flex-direction:column;gap:10px;}
   .ep-item{display:flex;align-items:flex-start;gap:12px;background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:0.85rem 1rem;transition:background 0.15s;}
   .ep-item:hover{background:var(--pink-light);}
+  .ep-item-with-banner{flex-direction:column;padding:0;overflow:hidden;}
+  .ep-item-with-banner:hover{background:var(--pink-light);}
+  .ep-banner{width:100%;height:160px;object-fit:cover;object-position:center top;display:block;border-radius:10px 10px 0 0;}
+  .ep-banner-body{display:flex;align-items:flex-start;gap:12px;padding:0.85rem 1rem;}
   .ep-num{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:900;color:var(--pink);min-width:28px;padding-top:1px;}
   .ep-title{font-size:13.5px;font-weight:700;margin-bottom:3px;}
   .ep-desc{font-size:12px;color:var(--muted);line-height:1.6;}
@@ -402,16 +406,30 @@
     <div class="section" id="sec-episodes">
       <div class="sec-label"><div class="sec-label-bar"></div><div class="sec-label-text">Visual Novel Game</div></div>
       <div class="ep-list">
+        <div class="ep-item ep-item-with-banner" style="cursor:pointer" onclick="openNovel('Visual novel/jlxQJDvOGh.html')">
+          <img class="ep-banner" src="img/vn_ep02_banner.jpg" alt="社員食堂の誤解">
+          <div class="ep-banner-body" style="width:100%;">
+            <div style="display:flex;flex-direction:column;align-items:center;gap:3px;min-width:28px;padding-top:1px;">
+              <span style="font-family:'Montserrat',sans-serif;font-size:9px;font-weight:900;background:var(--pink);color:white;padding:1px 5px;border-radius:99px;letter-spacing:0.05em;">NEW</span>
+              <span style="font-family:'Montserrat',sans-serif;font-size:11px;font-weight:900;color:var(--pink);">#02</span>
+            </div>
+            <div style="flex:1">
+              <div class="ep-title">社員食堂の誤解</div>
+              <div class="ep-desc">給料前の田中に「今日はおごりだ」と言う佐藤係長。しかし「俺より高いもん頼むな」と言われ田中は……！</div>
+            </div>
+            <div style="flex-shrink:0;align-self:center;background:var(--pink);color:white;font-size:10px;font-weight:700;padding:4px 10px;border-radius:99px;font-family:'Montserrat',sans-serif;white-space:nowrap;">▶ PLAY</div>
+          </div>
+        </div>
         <div class="ep-item" style="cursor:pointer" onclick="openNovel('Visual novel/GJ35p1rTDP.html')">
-          <div class="ep-num">#10</div>
+          <div class="ep-num">#01</div>
           <div style="flex:1">
             <div class="ep-title">会議中ドキドキ事件</div>
-            <div class="ep-desc">資料を見せながら上目遣いをしてくる佐藤。不意に見せる その可愛さに心が崩壊し、動揺が隠せない田中……‼‼"</div>
+            <div class="ep-desc">資料を見せながら上目遣いをしてくる佐藤。不意に見せる その可愛さに心が崩壊し、動揺が隠せない田中……‼</div>
           </div>
           <div style="flex-shrink:0;align-self:center;background:var(--pink);color:white;font-size:10px;font-weight:700;padding:4px 10px;border-radius:99px;font-family:'Montserrat',sans-serif;white-space:nowrap;">▶ PLAY</div>
         </div>
         <div class="ep-item" style="border-style:dashed;opacity:0.55">
-          <div class="ep-num">#02</div>
+          <div class="ep-num">#03</div>
           <div><div class="ep-title">Coming soon...</div><div class="ep-desc">次回エピソード準備中</div></div>
         </div>
       </div>
@@ -435,6 +453,10 @@
         <!-- 新しい更新はここに追加（上が最新） -->
         <div class="history-item">
           <span class="history-new">NEW</span>
+          <div class="history-date">2026/04/12</div>
+          <div class="history-text">Visual Novel GameにてEP2『社員食堂の誤解』を追加</div>
+        </div>
+        <div class="history-item">
           <div class="history-date">2026/04/06</div>
           <div class="history-text">サイトオープン！　JC上司 ☆Visual Novel Game#1 ☆MANGA #01〜#10 公開</div>
         </div>
